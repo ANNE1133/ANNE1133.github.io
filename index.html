@@ -5,16 +5,28 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>portfolio</title>
-    <script type="module" crossorigin src="/assets/index-DxPS1vaF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DNEOmzhF.css">
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!localStorage.theme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Ck6XsZKl.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CT5pP5NV.css">
   </head>
-  <body class="bg-indigo-200 min-h-screen font-Outfit">
-        <div class="w-full max-w-[992px] mx-auto">
-            <div id="navbar" class="sticky top-0 z-50"></div>
-            <div class="flex bg-white min-h-screen max-w-[992px] mx-auto px-1.25">
-                <div id="sidebar" class="hidden md:block w-[30%]"></div>
-                <div id="content" class="flex-1 md:flex-1 w-[70%]"></div>
-            </div>
+  <body class="bg-main-bg text-body-text min-h-screen font-outfit transition-colors duration-300">
+    <div class="w-full max-w-[992px] mx-auto">
+        <div id="navbar" class="bg-nav-bg sticky top-0 z-50"></div>
+        
+        <div class="flex bg-card-bg min-h-screen max-w-[992px] mx-auto px-1.25">
+            <div id="sidebar" class=" bg-card-bg hidden md:block w-[30%]"></div>
+            <div id="content" class="flex-1 w-[70%]"></div>
         </div>
+    </div>
   </body>
 </html>
