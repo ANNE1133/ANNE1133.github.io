@@ -1,5 +1,6 @@
 <a
-  class="flex-shrink-0 flex-grow-0 group block w-72 aspect-square overflow-hidden rounded-2xl border border-gray-100 bg-indigo-50 shadow-sm transition-all duration-300 hover:shadow-lg  pb-2"
+  class="project-card flex-shrink-0 flex-grow-0 group block w-72 aspect-auto overflow-hidden rounded-2xl border border-gray-100 bg-indigo-50 shadow-sm transition-all duration-300 hover:shadow-lg  pb-2"
+  data-tags=""
   target="_blank"
   rel="noopener noreferrer"
 >
@@ -9,7 +10,8 @@
     />
   </div>
   <div class="p-4 gap-4 overflow-hidden">
-    <h3 class="title font-semibold text-lg"></h3>
-    <p class="description text-sm text-gray-600"></p>
+    <div class="tag-container flex flex-wrap gap-2 mb-2"></div>
+    <h3 class="title font-semibold text-base text-black"></h3>
+    <p class="description text-sm text-gray-600 line-clamp-3 group-hover:line-clamp-none whitespace-pre-line"></p>
   </div>
 </a>
