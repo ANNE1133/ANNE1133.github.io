@@ -169,8 +169,6 @@ This project is open source and available under the MIT License.
 
 ## 👤 Author
 
-Your Name - [@yourhandle](https://twitter.com/yourhandle)
+Anecha Yoksombat - [@an_ch_pp](https://instragram.com/an_ch_pp)
 
 ---
-
-**Happy coding!** 🎉 Feel free to customize this README with your specific details and information.
