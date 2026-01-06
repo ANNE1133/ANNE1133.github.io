@@ -1,5 +1,6 @@
 import './style.css'
 import { loadItem } from '../public/components/item-base.js'
+import { eduCourses, eduScools, devSkills, aiSkills, socials, languages, contacts, routes, cards, experiences } from './filedata.js'
 
 async function loadComponent(id, path) {
   const res = await fetch(path)
@@ -72,7 +73,7 @@ async function setupProjectCards(id,boolean){
     // ใส่ data-tags ให้ card
     cardEl.dataset.tags = tags.join(' ')
 
-    // สีสำหรับแต่ละ tag (แบบเรียบง่าย)
+    // สีสำหรับแต่ละ tag
     const tagStyles = {
       'web': 'bg-blue-50 text-blue-600 border border-blue-200',
       'mobile': 'bg-purple-50 text-purple-600 border border-purple-200',
@@ -86,7 +87,7 @@ async function setupProjectCards(id,boolean){
       const colorClass = tagStyles[tag] || 'bg-gray-50 text-gray-600 border border-gray-200'
       btn.className = `project-tag px-3 py-1 text-xs font-medium rounded-full ${colorClass} transition-all duration-200 hover:shadow-sm`
       btn.dataset.tag = tag
-      btn.textContent = tag.toUpperCase()
+      btn.textContent = tag === 'ai' ? 'AI/ML' : tag.replace('_', ' ')
       tagContainer.appendChild(btn)
     })
   })
@@ -137,9 +138,9 @@ async function loadPage(page) {
       { title: '.title' }
     )
     await renderList(
-      'skilldesign-list',
+      'skillai-list',
       '/components/skill-list.html',
-      designSkills,
+      aiSkills,
       { title: '.title'}
     ) 
   }
@@ -147,7 +148,7 @@ async function loadPage(page) {
     await renderList(
       'experience-list',
       '/components/edu-school-list.html',
-      eduScools,
+      experiences,
       { title: '.title', institution: '.institution', year: '.year', description: '.description' }
     )
     await renderList(
@@ -187,224 +188,6 @@ async function loadPage(page) {
   
 }
 
-const experiences = [
-  {
-    title: 'Internship as a Frontend Developer',
-    institution: 'Tech Solutions Co., Ltd.',
-    year: 'June 2023 - August 2023',
-    description: 'Assisted in developing and maintaining the company website using HTML, CSS, and JavaScript. Collaborated with the design team to implement responsive designs and improve user experience.'
-  },
-  {
-    title: 'Part-time Web Developer',
-    institution: 'Freelance',
-    year: 'September 2022 - May 2023',
-    description: 'Worked on various freelance projects, creating websites for small businesses and personal portfolios. Gained experience in client communication, project management, and delivering quality work on time.'
-  }
-]
-const eduCourses = [
-  {
-    title: 'Bachelor of Science in Computer Science',
-    institution: 'KMITL',
-    year: '2020 - Present',
-    image: '/icons/course-logo.png'
-  },
-  {
-    title: 'High School Diploma',
-    institution: 'Bangkok Prep International School',
-    year: '2017 - 2020',
-    image: '/icons/course-logo.png'
-  }
-]
-const eduScools = [
-{
-    title: 'Bachelor of Science in Computer Science',
-    institution: 'KMITL',
-    year: '2020 - Present',
-    description: 'titdklkgjkjsdkklfdjkldsjflkleed to be completed in 2024, focusing on software development and data science.'
-  },
-  {
-    title: 'High School Diploma',
-    institution: 'Bangkok Prep International School',
-    year: '2017 - 2020',
-    description: 'gfddjgsljjdskjgkldsjkggflfjsgldk with Honors, focusing on Science and Mathematics.'
-  }
-]
-const devSkills = [
-  { title: 'HTML' },
-  { title: 'CSS' },
-  { title: 'JavaScript' },
-  { title: 'Vue.js' },
-  { title: 'React' },
-  { title: 'Node.js' },
-  { title: 'Express.js' },
-  { title: 'MongoDB' },
-]
-
-const designSkills = [
-  { title: 'Figma' },
-  { title: 'Adobe XD' },
-  { title: 'Sketch' },
-  { title: 'InVision' },
-  { title: 'Adobe Photoshop' },
-  { title: 'Adobe Illustrator' },
-]
- 
-const socials = [
-  { image: '/icons/github.png', title: 'GitHub', description: 'anecha' },
-  { image: '/icons/facebook.png', title: 'Facebook', description: 'anecha' },
-  { image: '/icons/instragram.png', title: 'Instagram', description: '@anecha' },
-]
-
-const languages = [
-  { image: '/icons/Thailand.png', title: 'Thai', description: 'Native language' },
-  { image: '/icons/England.png', title: 'English', description: 'CEFR level B2' }
-]
-
-const contacts = [
-  { image: '/icons/mail.svg', title: 'E-mail', description: 'AnechaYoksombat@gmail.com' },
-  { image: '/icons/tel.png', title: 'Telephone', description: '0864837892' },
-  { image: '/icons/place.png', title: 'Location', description: '@anecha' },
-]
-
-const routes = {
-  home: '/components/home.html',
-  about: '/components/about.html',
-  skills: '/components/skills.html',
-  projects: '/components/project.html',
-  contact: '/components/contact.html',
-}
-
-const cards = [
-  {
-    title: "Personal Portfolio Website",
-    description:
-      "A responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase projects, skills, and development experience.",
-    image: "/images/portfolio.png",
-    link: "https://anne1133.github.io",
-    tags: ['web']
-  },
-  {
-    title: "Roomin – Full-Stack Web Application",
-    description:
-      "(Team project)\nA full-stack web application featuring user authentication, Google OAuth, and payment workflows. Built with React and RESTful APIs, connected to a relational database, and deployed using Docker.",
-    image: "/images/roomin.jpeg",
-    link: "https://github.com/ANNE1133/Roomin",
-    tags: ['web']
-  },
-  {
-    title: "PIGParking – Mobile App System Design",
-    description:
-      "(Team project)\nA mobile parking management application concept focusing on system design. Includes use case design, relational database schema, and UI design based on user scenarios.",
-    image: "/images/pigparking.jpeg",
-    link: "https://github.com/anne1133/pigparking-system-design",
-    tags: ['mobile', 'system']
-  },
-  {
-    title: "KAIYANG - Java OOP Game Programming",
-    description:
-      "(Team project)\nA Java project developed to practice object-oriented programming and basic game logic. The game is built using Java Swing (JFrame), focusing on class structure, object interaction, and event-driven programming.",
-    image: "/images/kaiyang.jpeg",
-    link: "https://github.com/anne1133/pigparking-system-design",
-    tags: ['graphics']
-  },
-  {
-    title: "Graph Programming (Java)",
-    description:
-      "(Team project)\nDevelop program for classified path to trail, circuit, closewalk",
-    image: "/images/dsrc.jpeg",
-    link: "https://github.com/anne1133/dsrc-graph-classified",
-    tags: ['system']
-  },
-  {
-    title: "M-flow – System Design",
-    description:
-      "(Team project)\nA ticket collection on high way. Design flow analyze requirement.",
-    image: "/images/mflow.jpeg",
-    link: "https://github.com/anne1133/mflow-system-design",
-    tags: ['system']
-  },
-  {
-    title: "Speech emotion classification",
-    description:
-      "(Team project)\nA model using samples from ravdess crema-d savee and tess then augment spectrogram and using cnn technique then deploy",
-    image: "/images/speech-emo.png",
-    link: "https://anne1133-audio-classification-app-ska7gr.streamlit.app",
-    tags: ['ai']
-  },
-  {
-    title: "Company Bankruptcy Prediction",
-    description:
-      "(Team project)\nA prediction model using randomforest with the challenge of feature selection from 95 to 10",
-    image: "/images/bankrupt.png",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['ai']
-  },
-  {
-    title: "Programming language project",
-    description:
-      "(Team project)\nA compiler/interpreter project for a custom programming language",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['system']
-  },
-  {
-    title: "Cluster computing project",
-    description:
-      "(Team project)\nDistributed computing system for processing large-scale data",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['system']
-  },
-  {
-    title: "Computer Graphic 2D 5S",
-    description:
-      "(Team project)\n2D graphics project implementing workplace organization visualization",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['graphics']
-  },
-  {
-    title: "Computer Graphic 3D using openGL",
-    description:
-      "(Team project)\n3D graphics rendering using OpenGL for interactive visualization",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['graphics']
-  },
-  {
-    title: "People detection and identification",
-    description:
-      "(Team project)\nComputer vision project for detecting and identifying people in images",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['ai', 'progressing']
-  },
-  {
-    title: "Android Project",
-    description:
-      "(Team project)\nNative Android application with modern UI/UX design",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['mobile', 'progressing']
-  },
-  {
-    title: "Fullstack Project",
-    description:
-      "(Team project)\nComplete full-stack web application with frontend and backend",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['web', 'progressing']
-  },
-  {
-    title: "BigData Project",
-    description:
-      "(Team project)\nBig data analytics project using distributed computing frameworks",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
-    tags: ['ai', 'progressing']
-  }
-]
-
 async function renderList(containerId, template, data, map) {
   const container = document.getElementById(containerId)
   if (!container) {
@@ -431,7 +214,7 @@ async function initApp() {
   
   await renderList(
   'contact-list',
-  '/components/contact-item.html',
+  '/components/social-item.html',
   contacts,
   { image: '.image', title: '.title', description: '.description' }
 )
@@ -440,7 +223,7 @@ await renderList(
   'social-list',
   '/components/social-item.html',
   socials,
-  { image: '.image', title: '.title', description: '.description' }
+  { image: '.image', title: '.title', description: '.description', link: '.link' }
 )
 
   // Load default page

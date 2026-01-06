@@ -16,6 +16,7 @@
         document.documentElement.classList.remove("dark")
       }
     </script>
+    <script type="module" src="/src/main.js"></script>
   </head>
   <body class="bg-main-bg text-body-text min-h-screen font-outfit transition-colors duration-300">
     <div class="w-full max-w-[992px] mx-auto">
@@ -23,9 +24,8 @@
         
         <div class="flex bg-card-bg min-h-screen max-w-[992px] mx-auto px-1.25">
             <div id="sidebar" class=" bg-card-bg hidden md:block w-[30%]"></div>
-            <div id="content" class="flex-1 w-[70%]"></div>
+            <div id="content" class="flex-1 w-[70%] bg-card-bg"></div>
         </div>
     </div>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
