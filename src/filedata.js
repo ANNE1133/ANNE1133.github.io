@@ -155,7 +155,7 @@ const cards = [
     title: "Programming language project",
     description:
       "(Team project)\nA compiler/interpreter project for a custom programming language",
-    image: "/images/pl.jpeg",
+    image: "/images/pl.png",
     link: "https://github.com/ANNE1133/Lexer-jflex-project",
     tags: ['system']
   },
