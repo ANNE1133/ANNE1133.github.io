@@ -123,16 +123,16 @@ const cards = [
     title: "Graph Programming (Java)",
     description:
       "(Team project)\nDevelop program for classified path to trail, circuit, closewalk",
-    image: "/images/dsrc.jpeg",
+    image: "/images/dsrc.png",
     link: "https://github.com/anne1133/dsrc-graph-classified",
     tags: ['system']
   },
   {
-    title: "M-flow – System Design",
+    title: "M-flow – BA & BPMN Subject",
     description:
       "(Team project)\nA ticket collection on high way. Design flow analyze requirement.",
-    image: "/images/mflow.jpeg",
-    link: "https://github.com/anne1133/mflow-system-design",
+    image: "/images/BPMN.png",
+    link: "https://github.com/anne1133/mflow-ba-bpmn",
     tags: ['system']
   },
   {
@@ -156,15 +156,15 @@ const cards = [
     description:
       "(Team project)\nA compiler/interpreter project for a custom programming language",
     image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
+    link: "https://github.com/ANNE1133/Lexer-jflex-project",
     tags: ['system']
   },
   {
     title: "Cluster computing project",
     description:
       "(Team project)\nDistributed computing system for processing large-scale data",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
+    image: "/images/cluster.png",
+    link: "https://github.com/ANNE1133/cluster-computing-project",
     tags: ['system']
   },
   {
