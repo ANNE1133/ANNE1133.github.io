@@ -115,8 +115,8 @@ const cards = [
     title: "KAIYANG - Java OOP Game Programming",
     description:
       "(Team project)\nA Java project developed to practice object-oriented programming and basic game logic. The game is built using Java Swing (JFrame), focusing on class structure, object interaction, and event-driven programming.",
-    image: "/images/kaiyang.jpeg",
-    link: "https://github.com/anne1133/pigparking-system-design",
+    image: "/images/kaiyang.png",
+    link: "https://github.com/ANNE1133/GameP_PAJ",
     tags: ['graphics']
   },
   {

@@ -1,5 +1,5 @@
 import './style.css'
-import { loadItem } from '../public/components/item-base.js'
+import { loadItem } from './item-base.js'
 import { eduCourses, eduScools, devSkills, aiSkills, socials, languages, contacts, routes, cards, experiences } from './filedata.js'
 
 async function loadComponent(id, path) {
