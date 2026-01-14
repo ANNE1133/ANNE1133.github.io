@@ -123,8 +123,8 @@ const cards = [
     title: "Graph Programming (Java)",
     description:
       "(Team project)\nDevelop program for classified path to trail, circuit, closewalk",
-    image: "/images/dsrc.png",
-    link: "https://github.com/anne1133/dsrc-graph-classified",
+    image: "/images/dscr.png",
+    link: "https://github.com/anne1133/dscr-graph-classified",
     tags: ['system']
   },
   {
