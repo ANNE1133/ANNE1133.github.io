@@ -99,7 +99,7 @@ const cards = [
     title: "Roomin – Full-Stack Web Application",
     description:
       "(Team project)\nA full-stack web application featuring user authentication, Google OAuth, and payment workflows. Built with React and RESTful APIs, connected to a relational database, and deployed using Docker.",
-    image: "/images/roomin.jpeg",
+    image: "/images/roomin.png",
     link: "https://github.com/ANNE1133/Roomin",
     tags: ['web']
   },
@@ -107,7 +107,7 @@ const cards = [
     title: "PIGParking – Mobile App System Design",
     description:
       "(Team project)\nA mobile parking management application concept focusing on system design. Includes use case design, relational database schema, and UI design based on user scenarios.",
-    image: "/images/pigparking.jpeg",
+    image: "/images/EZ.png",
     link: "https://github.com/anne1133/pigparking-system-design",
     tags: ['mobile', 'system']
   },
