@@ -171,16 +171,16 @@ const cards = [
     title: "Computer Graphic 2D 5S",
     description:
       "(Team project)\n2D graphics project implementing workplace organization visualization",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
+    image: "/images/cg_anime.png",
+    link: "https://github.com/ANNE1133/CG_animation",
     tags: ['graphics']
   },
   {
     title: "Computer Graphic 3D using openGL",
     description:
       "(Team project)\n3D graphics rendering using OpenGL for interactive visualization",
-    image: "/images/pl.jpeg",
-    link: "https://anne1133-bankruptcy-prediction.streamlit.app",
+    image: "/images/3d.png",
+    link: "https://github.com/ANNE1133/CG_3D_openGL",
     tags: ['graphics']
   },
   {
