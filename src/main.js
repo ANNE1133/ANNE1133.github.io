@@ -1,6 +1,6 @@
 import './style.css'
 import { loadItem } from './item-base.js'
-import { eduCourses, eduScools, devSkills, aiSkills, socials, languages, contacts, routes, cards, experiences } from './filedata.js'
+import { eduCourses, eduScools, devSkills, aiSkills, socials, languages, contacts, routes, cards, experiences, projectFiles } from './filedata.js'
 
 async function loadComponent(id, path) {
   const res = await fetch(path)
@@ -10,7 +10,7 @@ async function loadComponent(id, path) {
 // Only ONE declaration of initTheme
 function initTheme() {
   const stored = localStorage.getItem('theme')
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches
   const isDark = stored === 'dark' || (!stored && prefersDark)
 
   if (isDark) {
@@ -47,10 +47,9 @@ function setupThemeToggle() {
 function setupNavbar() {
   document.querySelectorAll('.nav-link').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault()
-      const page = btn.dataset.page
-      if (!page) return
-      loadPage(page)
+      if (!btn.dataset.page) return;
+      e.preventDefault();
+      loadPage(btn.dataset.page);
     })
   })
 }
@@ -94,7 +93,7 @@ async function setupProjectCards(id,boolean){
   
   // Attach a single delegated click handler (once) on document.body so
   // filter buttons work regardless of which page rendered the projects.
-  if (!window.__projectTagHandlerAttached) {
+  if (!globalThis.__projectTagHandlerAttached) {
     document.body.addEventListener('click', e => {
       const el = e.target
       if (el && el.classList && el.classList.contains('project-tag')) {
@@ -102,7 +101,7 @@ async function setupProjectCards(id,boolean){
         applyFilter(el.dataset.tag)
       }
     })
-    window.__projectTagHandlerAttached = true
+    globalThis.__projectTagHandlerAttached = true
   }
 }
 function applyFilter(tag) {
@@ -152,24 +151,10 @@ async function loadPage(page) {
       { title: '.title', institution: '.institution', year: '.year', description: '.description' }
     )
     await renderList(
-      'edu-school-list',
-      '/components/edu-school-list.html',
-      eduScools,
-      { title: '.title', institution: '.institution', year: '.year', description: '.description' }
-    )
-    await setupProjectCards('projects-list', false)
-     await renderList(
-      'edu-course-list',
-      '/components/edu-course-list.html',
-      eduCourses,
-      { title: '.title', institution: '.institution', year: '.year' ,image: '.image' }
-    )
-    await renderList(
-      'skilldev-list',
-      '/components/skill-list.html',
-      devSkills,
-      { title: '.title' }
-    )
+      'projects-latest',
+      '/projects',        // folder
+      projectFiles        // ['p1.md', 'p2.md', 'p3.md']
+    );
   }
   if (page === 'about') {
     await renderList(
@@ -184,9 +169,13 @@ async function loadPage(page) {
       eduScools,
       { title: '.title', institution: '.institution', year: '.year', description: '.description' }
     )
-  }
-  
+  }  
 }
+
+function markdownToHtml(md) {
+  return marked.parse(md);
+}
+
 
 async function renderList(containerId, template, data, map) {
   const container = document.getElementById(containerId)
@@ -195,6 +184,20 @@ async function renderList(containerId, template, data, map) {
     return
   }
   container.innerHTML = ''
+
+   if (typeof map === 'undefined') {
+    console.log(template)
+    for (const file of data) {
+      const md = await fetch(`${template}/${file}`).then(r => r.text());
+
+      const card = document.createElement('div');
+      card.className = 'project-card min-w-[280px]';
+
+    card.innerHTML = markdownToHtml(md);
+      container.appendChild(card);
+    }
+    return;
+  }
 
   for (const item of data) {
     const el = await loadItem(template, item, map)
@@ -230,4 +233,4 @@ await renderList(
   loadPage('home')
 }
 
-initApp()
+await initApp()

@@ -5,7 +5,7 @@
 @layer base {
   :root {
       /* --- Light Mode Colors --- */
-      --color-bg-main: 199 210 254;    /* พื้นหลังรอบนอก (~indigo-200) */
+      --color-bg-main: 199 210 254;    /* พื้นหลังรอบนอก (~indigo-200) */ 
       --color-bg-card: 255 255 255;    /* พื้นหลังคอนเทนต์ (white) */
       --color-text-title: 79 70 229;   /* สีหัวข้อ (indigo-600) */
       --color-text-body: 31 41 55;     /* สีตัวอักษรทั่วไป (gray-800) */

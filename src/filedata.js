@@ -83,7 +83,6 @@ const routes = {
   about: '/components/about.html',
   skills: '/components/skills.html',
   projects: '/components/project.html',
-  contact: '/components/contact.html',
 }
 
 const cards = [
@@ -217,4 +216,11 @@ const cards = [
   }
 ]
 
-export { experiences, eduCourses, eduScools, devSkills, aiSkills, socials, languages, contacts, routes, cards }
+const projectFiles = [
+  'Roomin.md',
+  'PigParking.md',
+  'Sound.md',
+];
+
+export { experiences, eduCourses, eduScools, devSkills, aiSkills, socials, languages, contacts, routes, cards ,projectFiles}
+
